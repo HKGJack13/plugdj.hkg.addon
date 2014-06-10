@@ -2,7 +2,7 @@
 // @name       PlugHKG IconPack 
 // @version  1.4.9
 // @description  Usage: Go To School By Bus
-// match     http://plug.dj/hkgolden/*
+// @match     http://plug.dj/hkgolden/*
 // @copyright   nasaorc , bus, jack13
 // ==/UserScript==
 var server = 'http://xeonyan.wtako.net/plugdj/',
