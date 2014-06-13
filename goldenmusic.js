@@ -6,7 +6,7 @@
 // @copyright   nasaorc , bus, jack13
 // ==/UserScript==
 var server = 'http://xeonyan.wtako.net/plugdj/',
-	hkgserver = 'http://forum9.hkgolden.com/faces/',
+    hkgserver = 'http://forum9.hkgolden.com/faces/',
 
     noricon = {
         '`:)' : 'smile.gif',
@@ -163,7 +163,7 @@ var server = 'http://xeonyan.wtako.net/plugdj/',
         '`?_?_dw' : 'wonder.gif',
         '`???_dw' : 'wonder2.gif',
         '`Z_Z_dw' : 'z.gif',
-        '`@_@_dw' : '@.gif',
+        '`@_dw' : '@.gif',
         '`#yup#_dw' : 'agree.gif',
         '`#ng#_dw' : 'donno.gif',
         '`#hehe#_dw' : 'hehe.gif',
@@ -187,8 +187,8 @@ var server = 'http://xeonyan.wtako.net/plugdj/',
         '`[flowerface]_dw' : 'flowerface.gif',
         '`[offtopic]_dw' : 'offtopic.gif',
         '`[shocking]_dw' : 'shocking.gif',
-        '`[369]_dw' : '369.gif',
-        '`[bomb]_dw' : 'bomb.gif',
+        '`369_dw' : '369.gif',
+        '`#bomb#_dw' : 'bomb.gif',
         '`[photo]_dw' : 'photo.gif',
         '`[sosad_dw]' : 'sosad.gif',
         '`[yipes]_dw' : 'yipes.gif',
