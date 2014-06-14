@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name       PlugHKG IconPack 
-// @version  1.4.9
+// @version  1.5.0
 // @description  Usage: Go To School By Bus
 // @match     http://plug.dj/hkgolden/*
 // @copyright   nasaorc , bus, jack13
@@ -254,15 +254,21 @@ var server = 'http://xeonyan.wtako.net/plugdj/',
         '`wa' : 'wa.png',
         '`WFC' : 'WFC.png'
     },
-    b,button,panel,paneltext,tab,
-    noriconbutton,noriconbuttonl,noricontab,
-    xmasiconbutton,xmasiconbuttonl,xmasicontab,
-    newyeariconbutton,newyeariconbuttonl,newyearicontab,
-    lomoreiconbutton,lomoreiconbuttonl,lomoreicontab,
-    dwiconbutton,dwiconbuttonl,dwicontab,
-    friconbutton,friconbuttonl,fricontab,
-    othericonbutton,othericonbuttonl,othericontab,
-    q,u;
+    code = {
+        ' 粗體 ' : '[b][/b]',
+        ' 斜體 ' : '[i][/i]',
+        ' 底線 ' : '[u][/u]',
+        ' 圖片 ' : '[img][/img]'
+    },
+    b,button,panel,paneltext,tab,cursorPos,
+    noriconbutton,noriconbuttonl='',noricontab,
+    xmasiconbutton,xmasiconbuttonl='',xmasicontab,
+    newyeariconbutton,newyeariconbuttonl='',newyearicontab,
+    lomoreiconbutton,lomoreiconbuttonl='',lomoreicontab,
+    dwiconbutton,dwiconbuttonl='',dwicontab,
+    friconbutton,friconbuttonl='',fricontab,
+    othericonbutton,othericonbuttonl='',othericontab,
+    bbcbutton,bbcbuttonl='',bbctab;
 function cb(){
 	
     var DOMwatcher = function(root, callback){
@@ -294,40 +300,35 @@ function cb(){
             
             button = jQuery('<div/>',{id:'hkg-emot-btn'}).insertAfter('#chat #chat-input');
             button.css({height:30,bottom:10,right:2,position:'absolute',width:24,background:'#282c35 url("'+server+noricon[Object.keys(noricon)[0]]+'") center no-repeat',borderRadius:4,cursor:'pointer'})
-            button.attr('onclick','jQuery("#hkg-emot-panel").toggle();');
+            $('#hkg-emot-btn').on('click',function(){cursorPos=$('#chat-input-field').prop('selectionStart');jQuery("#hkg-emot-panel").toggle();});
 
-            paneltext = '<span class="text"><center><b>PlugHKG Icon v1.4.9</b></center></span>';
+            paneltext = '<span class="text"><center><b>PlugHKG Icon v1.5.0</b></center></span>';
             panel = jQuery('<div/>',{id:'hkg-emot-panel',style:'height:265px;width:336px;overflow-x:hidden;overflow-y:hidden;bottom:50px;right:2px;position:absolute;background:#282c35;'}).html(paneltext);
             spanel = jQuery('<div/>',{id:'hkg-emot-spanel',style:'padding:8px;height:215px;overflow-y:scroll;'});
 
-            noriconbuttonl ='';
-            xmasiconbuttonl ='';
-            newyeariconbuttonl ='';
-            lomoreiconbuttonl ='';
-            dwiconbuttonl ='';
-            friconbuttonl ='';
-            othericonbuttonl ='';
-
             jQuery.each(noricon,function(code1,name1){
-                noriconbuttonl += '<img alt src="'+server+name1+'" style="padding:4px;" onclick="jQuery(\'#chat-input #chat-input-field\').val(jQuery(\'#chat-input #chat-input-field\').val()+\''+code1+' \');jQuery(\'#chat-input #chat-input-field\').focus();jQuery(\'#hkg-emot-panel\').toggle();">';
+                noriconbuttonl += '<img alt src="'+server+name1+'" style="padding:4px;" onclick="var ccode = \''+code1+'\';var cursorPos=$(\'#chat-input-field\').prop(\'selectionStart\');var v=$(\'#chat-input-field\').val();var textBefore=v.substring(0,cursorPos);var textAfter=v.substring(cursorPos,v.length);$(\'#chat-input-field\').val(textBefore+ccode+textAfter);$(\'#chat-input-field\').focus();$(\'#chat-input-field\').prop(\'selectionStart\',cursorPos+ccode.length);$(\'#chat-input-field\').prop(\'selectionEnd\',cursorPos+ccode.length);jQuery(\'#hkg-emot-panel\').toggle();">';
             });
             jQuery.each(xmasicon,function(code2,name2){
-                xmasiconbuttonl += '<img alt src="'+server+name2+'" style="padding:4px;" onclick="jQuery(\'#chat-input #chat-input-field\').val(jQuery(\'#chat-input #chat-input-field\').val()+\''+code2+' \');jQuery(\'#chat-input #chat-input-field\').focus();jQuery(\'#hkg-emot-panel\').toggle();">';
+                xmasiconbuttonl += '<img alt src="'+server+name2+'" style="padding:4px;" onclick="var ccode = \''+code2+'\';var cursorPos=$(\'#chat-input-field\').prop(\'selectionStart\');var v=$(\'#chat-input-field\').val();var textBefore=v.substring(0,cursorPos);var textAfter=v.substring(cursorPos,v.length);$(\'#chat-input-field\').val(textBefore+ccode+textAfter);$(\'#chat-input-field\').focus();$(\'#chat-input-field\').prop(\'selectionStart\',cursorPos+ccode.length);$(\'#chat-input-field\').prop(\'selectionEnd\',cursorPos+ccode.length);jQuery(\'#hkg-emot-panel\').toggle();">';
             });
             jQuery.each(newyearicon,function(code3,name3){
-                newyeariconbuttonl += '<img alt src="'+server+name3+'" style="padding:4px;" onclick="jQuery(\'#chat-input #chat-input-field\').val(jQuery(\'#chat-input #chat-input-field\').val()+\''+code3+' \');jQuery(\'#chat-input #chat-input-field\').focus();jQuery(\'#hkg-emot-panel\').toggle();">';
+                newyeariconbuttonl += '<img alt src="'+server+name3+'" style="padding:4px;" onclick="var ccode = \''+code3+'\';var cursorPos=$(\'#chat-input-field\').prop(\'selectionStart\');var v=$(\'#chat-input-field\').val();var textBefore=v.substring(0,cursorPos);var textAfter=v.substring(cursorPos,v.length);$(\'#chat-input-field\').val(textBefore+ccode+textAfter);$(\'#chat-input-field\').focus();$(\'#chat-input-field\').prop(\'selectionStart\',cursorPos+ccode.length);$(\'#chat-input-field\').prop(\'selectionEnd\',cursorPos+ccode.length);jQuery(\'#hkg-emot-panel\').toggle();">';
             });
             jQuery.each(lomoreicon,function(code4,name4){
-                lomoreiconbuttonl += '<img alt src="'+server+name4+'" style="padding:4px;" onclick="jQuery(\'#chat-input #chat-input-field\').val(jQuery(\'#chat-input #chat-input-field\').val()+\''+code4+' \');jQuery(\'#chat-input #chat-input-field\').focus();jQuery(\'#hkg-emot-panel\').toggle();">';
+                lomoreiconbuttonl += '<img alt src="'+server+name4+'" style="padding:4px;" onclick="var ccode = \''+code4+'\';var cursorPos=$(\'#chat-input-field\').prop(\'selectionStart\');var v=$(\'#chat-input-field\').val();var textBefore=v.substring(0,cursorPos);var textAfter=v.substring(cursorPos,v.length);$(\'#chat-input-field\').val(textBefore+ccode+textAfter);$(\'#chat-input-field\').focus();$(\'#chat-input-field\').prop(\'selectionStart\',cursorPos+ccode.length);$(\'#chat-input-field\').prop(\'selectionEnd\',cursorPos+ccode.length);jQuery(\'#hkg-emot-panel\').toggle();">';
             });
             jQuery.each(dwicon,function(code5,name5){
-                dwiconbuttonl += '<img alt src="'+hkgserver+'draw/'+name5+'" style="padding:4px;" onclick="jQuery(\'#chat-input #chat-input-field\').val(jQuery(\'#chat-input #chat-input-field\').val()+\''+code5+' \');jQuery(\'#chat-input #chat-input-field\').focus();jQuery(\'#hkg-emot-panel\').toggle();">';
+                dwiconbuttonl += '<img alt src="'+hkgserver+'draw/'+name5+'" style="padding:4px;" onclick="var ccode = \''+code5+'\';var cursorPos=$(\'#chat-input-field\').prop(\'selectionStart\');var v=$(\'#chat-input-field\').val();var textBefore=v.substring(0,cursorPos);var textAfter=v.substring(cursorPos,v.length);$(\'#chat-input-field\').val(textBefore+ccode+textAfter);$(\'#chat-input-field\').focus();$(\'#chat-input-field\').prop(\'selectionStart\',cursorPos+ccode.length);$(\'#chat-input-field\').prop(\'selectionEnd\',cursorPos+ccode.length);jQuery(\'#hkg-emot-panel\').toggle();">';
             });
             jQuery.each(fricon,function(code6,name6){
-                friconbuttonl += '<img alt src="'+hkgserver+'frozen/'+name6+'" style="padding:4px;" onclick="jQuery(\'#chat-input #chat-input-field\').val(jQuery(\'#chat-input #chat-input-field\').val()+\''+code6+' \');jQuery(\'#chat-input #chat-input-field\').focus();jQuery(\'#hkg-emot-panel\').toggle();">';
+                friconbuttonl += '<img alt src="'+hkgserver+'frozen/'+name6+'" style="padding:4px;" onclick="var ccode = \''+code6+'\';var cursorPos=$(\'#chat-input-field\').prop(\'selectionStart\');var v=$(\'#chat-input-field\').val();var textBefore=v.substring(0,cursorPos);var textAfter=v.substring(cursorPos,v.length);$(\'#chat-input-field\').val(textBefore+ccode+textAfter);$(\'#chat-input-field\').focus();$(\'#chat-input-field\').prop(\'selectionStart\',cursorPos+ccode.length);$(\'#chat-input-field\').prop(\'selectionEnd\',cursorPos+ccode.length);jQuery(\'#hkg-emot-panel\').toggle();">';
             });
             jQuery.each(othericon,function(code7,name7){
-                othericonbuttonl += '<img alt src="'+server+name7+'" style="padding:4px;" onclick="jQuery(\'#chat-input #chat-input-field\').val(jQuery(\'#chat-input #chat-input-field\').val()+\''+code7+' \');jQuery(\'#chat-input #chat-input-field\').focus();jQuery(\'#hkg-emot-panel\').toggle();">';
+                othericonbuttonl += '<img alt src="'+server+name7+'" style="padding:4px;" onclick="var ccode = \''+code7+'\';var cursorPos=$(\'#chat-input-field\').prop(\'selectionStart\');var v=$(\'#chat-input-field\').val();var textBefore=v.substring(0,cursorPos);var textAfter=v.substring(cursorPos,v.length);$(\'#chat-input-field\').val(textBefore+ccode+textAfter);$(\'#chat-input-field\').focus();$(\'#chat-input-field\').prop(\'selectionStart\',cursorPos+ccode.length);$(\'#chat-input-field\').prop(\'selectionEnd\',cursorPos+ccode.length);jQuery(\'#hkg-emot-panel\').toggle();">';
+            });
+            jQuery.each(code,function(code8,name8){
+                bbcbuttonl += '<span onclick="var ccode = \''+name8+'\';var cursorPos=$(\'#chat-input-field\').prop(\'selectionStart\');var v=$(\'#chat-input-field\').val();var textBefore=v.substring(0,cursorPos);var textAfter=v.substring(cursorPos,v.length);$(\'#chat-input-field\').val(textBefore+ccode+textAfter);$(\'#chat-input-field\').focus();$(\'#chat-input-field\').prop(\'selectionStart\',cursorPos+ccode.length);$(\'#chat-input-field\').prop(\'selectionEnd\',cursorPos+ccode.length);jQuery(\'#hkg-emot-panel\').toggle();">'+code8+'</span>';
             });
             
             noriconbutton = jQuery('<div/>',{id:'hkg-emot-noriconbutton',class:'tab'}).html(noriconbuttonl);
@@ -337,6 +338,7 @@ function cb(){
             dwiconbutton = jQuery('<div/>',{id:'hkg-emot-dwiconbutton',class:'tab',style:"display:none;"}).html(dwiconbuttonl);
             friconbutton = jQuery('<div/>',{id:'hkg-emot-friconbutton',class:'tab',style:"display:none;"}).html(friconbuttonl);
             othericonbutton = jQuery('<div/>',{id:'hkg-emot-othericonbutton',class:'tab',style:"display:none;"}).html(othericonbuttonl);
+            bbcbutton = jQuery('<div/>',{id:'hkg-emot-bbcbutton',class:'tab',style:"display:none;"}).html(bbcbuttonl);
             
             tab = jQuery('<div/>',{id:'hkg-emot-icontab'});
             
@@ -347,6 +349,7 @@ function cb(){
             dwicontab = jQuery('<span/>',{id:'hkg-emot-dwicontab',style:"width:35px;display:inline-block;",onclick:"jQuery('.tab').css({display:'none'});jQuery('#hkg-emot-dwiconbutton').css({display:'block;'})"}).html('<center><b>水彩</b></center>');
             fricontab = jQuery('<span/>',{id:'hkg-emot-fricontab',style:"width:35px;display:inline-block;",onclick:"jQuery('.tab').css({display:'none'});jQuery('#hkg-emot-friconbutton').css({display:'block;'})"}).html('<center><b>北極</b></center>');
             othericontab = jQuery('<span/>',{id:'hkg-emot-othericontab',style:"width:35px;display:inline-block;",onclick:"jQuery('.tab').css({display:'none'});jQuery('#hkg-emot-othericonbutton').css({display:'block;'})"}).html('<center><b>其它</b></center>');
+            bbctab = jQuery('<span/>',{id:'hkg-emot-bbctab',style:"width:35px;display:inline-block;",onclick:"jQuery('.tab').css({display:'none'});jQuery('#hkg-emot-bbcbutton').css({display:'block;'})"}).html('<center><b>連結</b></center>');
             
             tab.append(noricontab);
             tab.append(xmasicontab);
@@ -355,6 +358,7 @@ function cb(){
             tab.append(dwicontab);
             tab.append(fricontab);
             tab.append(othericontab);
+            tab.append(bbctab);
             
             panel.append(tab);
             panel.append(spanel);
@@ -366,14 +370,15 @@ function cb(){
             spanel.append(dwiconbutton);
             spanel.append(friconbutton);
             spanel.append(othericonbutton);
+            spanel.append(bbcbutton);
             
             panel.insertAfter('#chat #chat-input');
             
-            u = $.extend({}, lomoreicon, newyearicon, xmasicon, othericon, noricon);
+            var u = $.extend({}, lomoreicon, newyearicon, xmasicon, othericon, noricon);
             
             DOMwatcher(jQuery('#chat #chat-messages')[0], function(t,n){
                 n = jQuery(n).find('.text');
-                q = n.html();
+                var q = n.html();
                 var srh = new Array(
                     /\[b\](.*?)\[\/b\]/g,
                     /\[i\](.*?)\[\/i\]/g,
@@ -387,7 +392,7 @@ function cb(){
                 for(var i = 0; i < srh.length; i++){
                     q = q.replace(srh[i], rpl[i]);
                 };
-                q = q.replace(/\[img\][\s\S]*?href=\"(.*?)\"[\s\S]*?\[\/img\]/g,'<img width="100%" class="himg" alt src="$1">');
+                q = q.replace(/\[(img|IMG)\][\s\S]*?href=\"(.*?)\"[\s\S]*?\[\/(img|IMG)\]/g,'<img width="100%" class="himg" alt src="$2">');
                 jQuery.each(dwicon,function(code5,name5){
                     q = q.replace(new RegExp(code5.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g,'\\$&'),'g'),'<img alt src="'+hkgserver+'draw/'+name5+'">');
                 });
