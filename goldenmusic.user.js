@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name       PlugHKG IconPack 
-// @version  1.5.1
+// @version  1.5.1.1
 // @description  Provide hkgolden icons for plugdj users
 // @downloadURL https://raw.githubusercontent.com/HKGJack13/plugdj.hkg.addon/master/goldenmusic.user.js
 // @downloadURL https://raw.githubusercontent.com/HKGJack13/plugdj.hkg.addon/master/goldenmusic.meta.js
@@ -257,10 +257,10 @@ var server = 'http://xeonyan.wtako.net/plugdj/',
         '`WFC' : 'WFC.png'
     },
     code = {
-        ' ≤ ≈È ' : '[b][/b]',
-        ' ±◊≈È ' : '[i][/i]',
-        ' ©≥Ωu ' : '[u][/u]',
-        ' πœ§˘ ' : '[img][/img]'
+        ' Á≤óÈ´î ' : '[b][/b]',
+        ' ÊñúÈ´î ' : '[i][/i]',
+        ' Â∫ïÁ∑ö ' : '[u][/u]',
+        ' ÂúñÁâá ' : '[img][/img]'
     },
     b,button,panel,paneltext,tab,cursorPos,
     noriconbutton,noriconbuttonl='',noricontab,
@@ -304,7 +304,7 @@ function cb(){
             button.css({height:30,bottom:10,right:2,position:'absolute',width:24,background:'#282c35 url("'+server+noricon[Object.keys(noricon)[0]]+'") center no-repeat',borderRadius:4,cursor:'pointer'})
             $('#hkg-emot-btn').on('click',function(){cursorPos=$('#chat-input-field').prop('selectionStart');jQuery("#hkg-emot-panel").toggle();});
 
-            paneltext = '<span class="text"><center><b>PlugHKG Icon v1.5.0</b></center></span>';
+            paneltext = '<span class="text"><center><b>PlugHKG Icon v1.5.1.1</b></center></span>';
             panel = jQuery('<div/>',{id:'hkg-emot-panel',style:'height:265px;width:336px;overflow-x:hidden;overflow-y:hidden;bottom:50px;right:2px;position:absolute;background:#282c35;'}).html(paneltext);
             spanel = jQuery('<div/>',{id:'hkg-emot-spanel',style:'padding:8px;height:215px;overflow-y:scroll;'});
 
@@ -344,14 +344,14 @@ function cb(){
             
             tab = jQuery('<div/>',{id:'hkg-emot-icontab'});
             
-            noricontab = jQuery('<span/>',{id:'hkg-emot-noricontab',style:"width:35px;display:inline-block;",onclick:"jQuery('.tab').css({display:'none'});jQuery('#hkg-emot-noriconbutton').css({display:'block'});"}).html('<center><b>•ø±`</b></center>');
-            xmasicontab = jQuery('<span/>',{id:'hkg-emot-xmasicontab',style:"width:35px;display:inline-block;",onclick:"jQuery('.tab').css({display:'none'});jQuery('#hkg-emot-xmasiconbutton').css({display:'block'});"}).html('<center><b>∏tΩœ</b></center>');
-            newyearicontab = jQuery('<span/>',{id:'hkg-emot-newtearicontab',style:"width:35px;display:inline-block;",onclick:"jQuery('.tab').css({display:'none'});jQuery('#hkg-emot-newyeariconbutton').css({display:'block;'})"}).html('<center><b>∑s¶~</b></center>');
-            lomoreicontab = jQuery('<span/>',{id:'hkg-emot-lomoreicontab',style:"width:35px;display:inline-block;",onclick:"jQuery('.tab').css({display:'none'});jQuery('#hkg-emot-lomoreiconbutton').css({display:'block;'})"}).html('<center><b>∏£≈]</b></center>');
-            dwicontab = jQuery('<span/>',{id:'hkg-emot-dwicontab',style:"width:35px;display:inline-block;",onclick:"jQuery('.tab').css({display:'none'});jQuery('#hkg-emot-dwiconbutton').css({display:'block;'})"}).html('<center><b>§Ù±m</b></center>');
-            fricontab = jQuery('<span/>',{id:'hkg-emot-fricontab',style:"width:35px;display:inline-block;",onclick:"jQuery('.tab').css({display:'none'});jQuery('#hkg-emot-friconbutton').css({display:'block;'})"}).html('<center><b>•_∑•</b></center>');
-            othericontab = jQuery('<span/>',{id:'hkg-emot-othericontab',style:"width:35px;display:inline-block;",onclick:"jQuery('.tab').css({display:'none'});jQuery('#hkg-emot-othericonbutton').css({display:'block;'})"}).html('<center><b>®‰•¶</b></center>');
-            bbctab = jQuery('<span/>',{id:'hkg-emot-bbctab',style:"width:35px;display:inline-block;",onclick:"jQuery('.tab').css({display:'none'});jQuery('#hkg-emot-bbcbutton').css({display:'block;'})"}).html('<center><b>≥sµ≤</b></center>');
+            noricontab = jQuery('<span/>',{id:'hkg-emot-noricontab',style:"width:35px;display:inline-block;",onclick:"jQuery('.tab').css({display:'none'});jQuery('#hkg-emot-noriconbutton').css({display:'block'});"}).html('<center><b>Ê≠£Â∏∏</b></center>');
+            xmasicontab = jQuery('<span/>',{id:'hkg-emot-xmasicontab',style:"width:35px;display:inline-block;",onclick:"jQuery('.tab').css({display:'none'});jQuery('#hkg-emot-xmasiconbutton').css({display:'block'});"}).html('<center><b>ËÅñË™ï</b></center>');
+            newyearicontab = jQuery('<span/>',{id:'hkg-emot-newtearicontab',style:"width:35px;display:inline-block;",onclick:"jQuery('.tab').css({display:'none'});jQuery('#hkg-emot-newyeariconbutton').css({display:'block;'})"}).html('<center><b>Êñ∞Âπ¥</b></center>');
+            lomoreicontab = jQuery('<span/>',{id:'hkg-emot-lomoreicontab',style:"width:35px;display:inline-block;",onclick:"jQuery('.tab').css({display:'none'});jQuery('#hkg-emot-lomoreiconbutton').css({display:'block;'})"}).html('<center><b>ËÖ¶È≠î</b></center>');
+            dwicontab = jQuery('<span/>',{id:'hkg-emot-dwicontab',style:"width:35px;display:inline-block;",onclick:"jQuery('.tab').css({display:'none'});jQuery('#hkg-emot-dwiconbutton').css({display:'block;'})"}).html('<center><b>Ê∞¥ÂΩ©</b></center>');
+            fricontab = jQuery('<span/>',{id:'hkg-emot-fricontab',style:"width:35px;display:inline-block;",onclick:"jQuery('.tab').css({display:'none'});jQuery('#hkg-emot-friconbutton').css({display:'block;'})"}).html('<center><b>ÂåóÊ•µ</b></center>');
+            othericontab = jQuery('<span/>',{id:'hkg-emot-othericontab',style:"width:35px;display:inline-block;",onclick:"jQuery('.tab').css({display:'none'});jQuery('#hkg-emot-othericonbutton').css({display:'block;'})"}).html('<center><b>ÂÖ∂ÂÆÉ</b></center>');
+            bbctab = jQuery('<span/>',{id:'hkg-emot-bbctab',style:"width:35px;display:inline-block;",onclick:"jQuery('.tab').css({display:'none'});jQuery('#hkg-emot-bbcbutton').css({display:'block;'})"}).html('<center><b>ÈÄ£Áµê</b></center>');
             
             tab.append(noricontab);
             tab.append(xmasicontab);
